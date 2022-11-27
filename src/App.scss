@@ -1,0 +1,42 @@
+.mode-btn {
+  position: absolute;
+  top: 5rem;
+  right: 2rem;
+  background: #000;
+  border-radius: 50%;
+  height: 30px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  color: rgb(255, 174, 0);
+  display: none;
+}
+.prods {
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 1rem 0;
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    gap: 0.4rem;
+    min-height: 300px;
+    padding: 1rem;
+    .img-container {
+      height: 150px;
+      width: 100px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
