@@ -1,3 +1,6 @@
+.App {
+  margin-top: 4rem;
+}
 .mode-btn {
   position: absolute;
   top: 5rem;
@@ -27,8 +30,7 @@
     min-height: 300px;
     padding: 1rem;
     .img-container {
-      height: 150px;
-      width: 100px;
+      height: 300px;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -36,6 +38,7 @@
       img {
         width: 100%;
         object-fit: cover;
+        display: inline-block;
       }
     }
   }

@@ -10,6 +10,9 @@ const Home = () => {
         <Typography variant="h4">Top Products</Typography>
         <Products qty />
       </div>
+      <div className="category">
+        <Typography variant="h4">Categories</Typography>
+      </div>
     </div>
   );
 };

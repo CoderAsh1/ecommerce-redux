@@ -14,11 +14,19 @@ import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const drawerWidth = 240;
 const navItems = ["Products"];
 
 function DrawerAppBar(props) {
+  const cart = useSelector((state) => state.cart);
+  let cartQty =
+    cart.length &&
+    cart.reduce((ini, acc) => {
+      return ini + acc.qty;
+    }, 0);
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -77,7 +85,7 @@ function DrawerAppBar(props) {
         className="appbar"
         style={{
           background: "#db6904",
-          position: "relative",
+          position: "fixed",
           boxShadow: "none",
         }}
       >
@@ -112,7 +120,7 @@ function DrawerAppBar(props) {
           </Box>
           <Link to="/cart">
             <IconButton aria-label="cart">
-              <StyledBadge badgeContent={4} color="primary">
+              <StyledBadge badgeContent={cartQty} color="primary">
                 <ShoppingCartIcon />
               </StyledBadge>
             </IconButton>

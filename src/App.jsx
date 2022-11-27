@@ -7,7 +7,7 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
-import Cart from "./components/Cart";
+import Cart from "./components/Cart/Cart";
 import Products from "./components/Products";
 import Home from "./components/Home";
 import { Provider } from "react-redux";

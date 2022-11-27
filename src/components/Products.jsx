@@ -16,9 +16,10 @@ const Products = ({ qty }) => {
   let limit = qty ? 5 : 30;
   const { data: products, isLoading, isError } = useGetProductsQuery(limit);
   const { data: catData } = useGetCatDataQuery(type);
-  console.log(catData);
 
   const dispatch = useDispatch();
+
+  const cart = useSelector((state) => state.cart);
 
   if (isLoading) return "Loading...";
 
@@ -75,7 +76,16 @@ const Products = ({ qty }) => {
             </div>
             <Button
               variant="contained"
-              onClick={() => dispatch(() => addToCart(prod))}
+              onClick={() => dispatch(addToCart({ ...prod, qty: 1 }))}
+              style={
+                cart.find((item) => item.id == prod.id)
+                  ? {
+                      color: "black",
+                      background: "none",
+                      border: "2px solid #db6904",
+                    }
+                  : { background: "#db6904" }
+              }
             >
               Add to Cart
             </Button>
