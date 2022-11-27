@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import {
   useGetCatagoryQuery,
   useGetProductsQuery,
+  useGetCatDataQuery,
 } from "../Store/productSlice";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -14,11 +15,10 @@ const Products = ({ qty }) => {
   const { data: cat } = useGetCatagoryQuery();
   let limit = qty ? 5 : 30;
   const { data: products, isLoading, isError } = useGetProductsQuery(limit);
+  const { data: catData } = useGetCatDataQuery(type);
+  console.log(catData);
 
-  const x = useSelector((state) => state);
   const dispatch = useDispatch();
-
-  console.log(x);
 
   if (isLoading) return "Loading...";
 
@@ -31,10 +31,9 @@ const Products = ({ qty }) => {
     }
     return arr;
   }
-  console.log(x);
 
   function filterData() {
-    let filterData = type ? specData : products;
+    let filterData = type ? catData : products;
     if (type === "select") filterData = products;
 
     return filterData;
